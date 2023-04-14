@@ -117,7 +117,6 @@ def ask_ai(file_url: str, question: str):
     llm = ChatOpenAI(model_name=model_name, temperature=temperature, max_tokens=max_tokens)
 
     system_template = """Use the following pieces of context to answer the users question.
-Take note of the sources and include them in the answer in the format: "SOURCES: source1 source2", use "SOURCES" in capital letters regardless of the number of sources.
 If you don't know the answer, just say that "I don't know", don't try to make up an answer.
 ----------------
 {summaries}"""
