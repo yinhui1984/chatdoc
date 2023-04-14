@@ -1,3 +1,3 @@
 env.config
 .idea
-./vector_db/*
+vector_db/
