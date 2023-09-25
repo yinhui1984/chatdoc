@@ -51,6 +51,7 @@ def get_vector_db(name: str):
 
 
 def translate(txt):
+    print("Translate to Chinese...")
     import openai
     openai.api_key = os.environ['OPENAI_API_KEY']
     completion = openai.ChatCompletion.create(model=model_name, messages=[
@@ -149,7 +150,7 @@ If you don't know the answer, just say that "I don't know", don't try to make up
     def run_chain(params):
         chat_res = chain(params)
         answer = chat_res.get('answer')
-        # print(answer)
+        print("\n"+answer)
         global translatedAnswer
         if translateNeeded:
             translatedAnswer = translate(answer)
@@ -164,7 +165,8 @@ If you don't know the answer, just say that "I don't know", don't try to make up
     # print as green
     print('\033[32m' + "---- answer ---- " + '\033[0m')
     global translatedAnswer
-    print(translatedAnswer)
+    if translateNeeded:
+        print(translatedAnswer)
 
 
 def main():
